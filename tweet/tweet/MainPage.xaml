@@ -8,7 +8,7 @@
 
     <StackLayout>
         <!-- Place new controls here -->
-        <StackLayout BackgroundColor="#58B0F0" Orientation="Horizontal" Padding="25,10,25,10">
+        <StackLayout BackgroundColor="#58B0F0" Orientation="Horizontal" Padding="10, 25">
             <Label Text="Nouveau" HorizontalOptions="StartAndExpand"
            VerticalOptions="CenterAndExpand" TextColor="White"/>
             <Label Text="Accueil" HorizontalOptions="CenterAndExpand"
@@ -16,9 +16,34 @@
             <Label Text="Rechercher" HorizontalOptions="EndAndExpand"
            VerticalOptions="CenterAndExpand" TextColor="White"/>
         </StackLayout>
-        <Label Text="Welcome to Xamarin.Forms!" 
-           HorizontalOptions="Center"
-           VerticalOptions="CenterAndExpand" />
+        <ScrollView  VerticalOptions="FillAndExpand" >
+            <StackLayout Orientation="Vertical">
+                <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" Padding="10" >
+                    <BoxView BackgroundColor="Teal" WidthRequest="75"/>
+                    <StackLayout Orientation="Vertical">
+                        <StackLayout Orientation="Horizontal">
+                            <Label Text="name"/>
+                            <Label Text="identifiant"/>
+                            <Label Text="date" TextColor="Gray" HorizontalOptions="EndAndExpand"/>
+                        </StackLayout>
+                        <Label Text="qsdlfkjmldskfjlkjqdsflmkjqmlsdkfjqlksdfjqmlkdsjfqmlskdfjqlkdjfqlksdjfqlmksdjfqlmksdjfqlmkdsjfqmlskdfjqmldkfjqmldskdkflqmjdflkj"/>
+                    </StackLayout>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal">
+                    <Label HorizontalOptions="CenterAndExpand" Text="Répondre"/>
+                    <Label HorizontalOptions="CenterAndExpand" Text="Retweet"/>
+                    <Label HorizontalOptions="CenterAndExpand" Text="Favoris"/>
+                </StackLayout>
+                <BoxView HeightRequest="1" BackgroundColor="LightGray" HorizontalOptions="FillAndExpand" />
+            </StackLayout>
+        </ScrollView>
+        <StackLayout HeightRequest="75" Orientation="Horizontal" VerticalOptions="End">
+            <Label TextColor="Gray" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" Text="Fil"/>
+            <Label TextColor="Gray" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" Text="Notifications"/>
+            <Label TextColor="Gray" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" Text="Messages"/>
+            <Label TextColor="Gray" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" Text="Moi"/>
+        </StackLayout>
+        
     </StackLayout>
 
 </ContentPage>
