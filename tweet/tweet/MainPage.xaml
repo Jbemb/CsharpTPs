@@ -9,17 +9,28 @@
     <StackLayout>
         <!-- Place new controls here -->
         <StackLayout BackgroundColor="#58B0F0" Orientation="Horizontal" Padding="10, 25">
-            <Label Text="Nouveau" HorizontalOptions="StartAndExpand"
+            <Image Source="pencil.png" HorizontalOptions="StartAndExpand"
+           VerticalOptions="CenterAndExpand" Aspect="AspectFill" WidthRequest="25"/>
+            <Label Text="Accueil" FontAttributes="Bold" FontSize="20" HorizontalOptions="CenterAndExpand"
            VerticalOptions="CenterAndExpand" TextColor="White"/>
-            <Label Text="Accueil" HorizontalOptions="CenterAndExpand"
-           VerticalOptions="CenterAndExpand" TextColor="White"/>
-            <Label Text="Rechercher" HorizontalOptions="EndAndExpand"
-           VerticalOptions="CenterAndExpand" TextColor="White"/>
+            <Image Source="search.png" HorizontalOptions="EndAndExpand"
+           VerticalOptions="Center" Aspect="AspectFill" WidthRequest="25"></Image>
+            
+        </StackLayout>
+        <StackLayout Orientation="Vertical" HorizontalOptions="FillAndExpand">
+            <Label Text="Connexion à Twitter" HorizontalTextAlignment="Center" TextColor="Gray"></Label>
+            <Entry x:Name="Identifiant" Placeholder="Identifiant Twitter"></Entry>
+            <Entry x:Name="Password" IsPassword="True" Placeholder="Mot de Passe"></Entry>
+            <StackLayout Orientation="Horizontal">
+                <Switch x:Name="RememberMe" ThumbColor="HotPink" OnColor="Pink" Margin="10"></Switch>
+                <Label Text="Memoriser mes informations" VerticalTextAlignment="Center" HorizontalTextAlignment="Start"></Label>
+            </StackLayout>
+            <Button x:Name="connecter" Text="SE CONNECTER" BackgroundColor="LightGray" Padding="10"></Button>
         </StackLayout>
         <ScrollView  VerticalOptions="FillAndExpand" >
             <StackLayout Orientation="Vertical">
                 <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" Padding="10" >
-                    <BoxView BackgroundColor="Teal" WidthRequest="75"/>
+                    <Image Source="https://picsum.photos/50/50/?random" Aspect="AspectFill" WidthRequest="75"></Image>
                     <StackLayout Orientation="Vertical">
                         <StackLayout Orientation="Horizontal">
                             <Label Text="name"/>
@@ -30,9 +41,9 @@
                     </StackLayout>
                 </StackLayout>
                 <StackLayout Orientation="Horizontal">
-                    <Label HorizontalOptions="CenterAndExpand" Text="Répondre"/>
-                    <Label HorizontalOptions="CenterAndExpand" Text="Retweet"/>
-                    <Label HorizontalOptions="CenterAndExpand" Text="Favoris"/>
+                    <ImageButton HorizontalOptions="CenterAndExpand" Source="reply.png" WidthRequest="25"></ImageButton>
+                    <ImageButton HorizontalOptions="CenterAndExpand" Source="retweet.png" WidthRequest="25"></ImageButton>
+                    <ImageButton HorizontalOptions="CenterAndExpand" Source="favorite.png" WidthRequest="25"></ImageButton>
                 </StackLayout>
                 <BoxView HeightRequest="1" BackgroundColor="LightGray" HorizontalOptions="FillAndExpand" />
             </StackLayout>
