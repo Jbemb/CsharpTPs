@@ -16,6 +16,39 @@ namespace tweet
         public MainPage()
         {
             InitializeComponent();
+            this.connecter.Clicked += Connecter_Clicked;
+        }
+
+        private void Connecter_Clicked(object sender, EventArgs e)
+        {
+            System.Diagnostics.Debug.WriteLine("Connection is clicked");
+            var id = this.Identifiant.Text;
+            var mdp = this.Password.Text;
+            var remember = this.RememberMe.IsToggled;
+            Boolean isConnected = false;
+            if(id == null || id.Length < 3) 
+            {
+                this.error.IsVisible = true;
+                this.error.Text = ("Please enter an id at least 3 characters long.");
+            }
+            else if (mdp == null || mdp.Length < 6)
+            {
+                this.error.IsVisible = true;
+                this.error.Text = ("Please enter password at least 6 characters long.");
+            }else
+            {
+                this.error.IsVisible = false;
+                this.error.Text = ("");
+                isConnected = true;
+            }
+
+            if(isConnected == true) 
+            {
+                this.tweets.IsVisible = true;
+                this.signIn.IsVisible = false;
+            }
+            
+
         }
     }
 }
