@@ -4,6 +4,8 @@ using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using tweet.model;
+using tweet.service;
 using Xamarin.Forms;
 
 namespace tweet
@@ -15,6 +17,7 @@ namespace tweet
     {
         private const string LOGIN_ERROR = "Please enter an id at least 3 characters long.";
         private const string PASSWORD_ERROR = "Please enter password at least 6 characters long.";
+        private const string INCORRECT_ERROR = "Your password and/or user name are incorrect.";
 
         public MainPage()
         {
@@ -31,12 +34,12 @@ namespace tweet
             var testLogin = true;
             var testPassword = true;
             Boolean isConnected = false;
+            TwitterService tService = new TwitterService();
             StringBuilder builder = new StringBuilder();
 
             if(String.IsNullOrEmpty(id) || id.Length < 3) 
             {
                 testLogin = false;
-                // this.error.Text = "Please enter an id at least 3 characters long.";
                 builder.Append(LOGIN_ERROR);
             }
             if (String.IsNullOrEmpty(mdp) || mdp.Length < 6)
@@ -47,27 +50,29 @@ namespace tweet
                     builder.Append("\n");
                 }
                 builder.Append(PASSWORD_ERROR);
-                // this.error.Text = "Please enter password at least 6 characters long.";
+                
             }
 
             if(testPassword && testLogin)
             {
-                isConnected = true;
+                isConnected = tService.Authenticate(id, mdp);
+                if (!isConnected) 
+                {
+                    builder.Append(INCORRECT_ERROR);
+                }
+            }
+
+            if (isConnected) 
+            {
                 this.tweets.IsVisible = true;
                 this.signIn.IsVisible = false;
-            }else 
+                List<Tweet> tweetsFromData = tService.GetTweets();
+            }
+            else
             {
                 this.error.Text = builder.ToString();
                 this.error.IsVisible = true;
             }
-
-            //if(isConnected == true) 
-            //{
-            //    this.tweets.IsVisible = true;
-            //    this.signIn.IsVisible = false;
-            //}
-
-
         }
     }
 }
