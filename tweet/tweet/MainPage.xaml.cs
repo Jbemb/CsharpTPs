@@ -13,6 +13,9 @@ namespace tweet
     [DesignTimeVisible(false)]
     public partial class MainPage : ContentPage
     {
+        private const string LOGIN_ERROR = "Please enter an id at least 3 characters long.";
+        private const string PASSWORD_ERROR = "Please enter password at least 6 characters long.";
+
         public MainPage()
         {
             InitializeComponent();
@@ -25,29 +28,45 @@ namespace tweet
             var id = this.Identifiant.Text;
             var mdp = this.Password.Text;
             var remember = this.RememberMe.IsToggled;
+            var testLogin = true;
+            var testPassword = true;
             Boolean isConnected = false;
-            if(id == null || id.Length < 3) 
+            StringBuilder builder = new StringBuilder();
+
+            if(String.IsNullOrEmpty(id) || id.Length < 3) 
             {
-                this.error.IsVisible = true;
-                this.error.Text = ("Please enter an id at least 3 characters long.");
+                testLogin = false;
+                // this.error.Text = "Please enter an id at least 3 characters long.";
+                builder.Append(LOGIN_ERROR);
             }
-            else if (mdp == null || mdp.Length < 6)
+            if (String.IsNullOrEmpty(mdp) || mdp.Length < 6)
             {
-                this.error.IsVisible = true;
-                this.error.Text = ("Please enter password at least 6 characters long.");
-            }else
-            {
-                this.error.IsVisible = false;
-                this.error.Text = ("");
-                isConnected = true;
+                testPassword = false;
+                if (!testLogin) 
+                {
+                    builder.Append("\n");
+                }
+                builder.Append(PASSWORD_ERROR);
+                // this.error.Text = "Please enter password at least 6 characters long.";
             }
 
-            if(isConnected == true) 
+            if(testPassword && testLogin)
             {
+                isConnected = true;
                 this.tweets.IsVisible = true;
                 this.signIn.IsVisible = false;
+            }else 
+            {
+                this.error.Text = builder.ToString();
+                this.error.IsVisible = true;
             }
-            
+
+            //if(isConnected == true) 
+            //{
+            //    this.tweets.IsVisible = true;
+            //    this.signIn.IsVisible = false;
+            //}
+
 
         }
     }
