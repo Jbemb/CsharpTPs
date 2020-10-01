@@ -18,14 +18,15 @@
                         <StackLayout>
                             <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" Padding="10" >
                                 <Image Source="https://picsum.photos/50/50/?random" Aspect="AspectFill" WidthRequest="75"></Image>
-                                <StackLayout Orientation="Vertical">
+                                <StackLayout Orientation="Vertical" HorizontalOptions="FillAndExpand" >
                                     <StackLayout Orientation="Horizontal">
                                         <Label Text="{Binding userName}" x:Name="userName"/>
                                         <Label Text="{Binding userPseudo}" x:Name="userId"/>
                                         <Label Text="{Binding dateCreation}" TextColor="Gray" HorizontalOptions="EndAndExpand" x:Name="date"/>
                                     </StackLayout>
-                                    <Label x:Name="{Binding text}" Text="qsdlfkjmldskfjlkjqdsflmkjqmlsdkfjqlksdfjqmlkdsjfqmlskdfjqlkdjfqlksdjfqlmksdjfqlmksdjfqlmkdsjfqmlskdfjqmldkfjqmldskdkflqmjdflkj"/>
+                                    <Label x:Name="content" Text="{Binding text}"/>
                                 </StackLayout>
+                                
                             </StackLayout>
                             <StackLayout Orientation="Horizontal">
                                 <ImageButton HorizontalOptions="CenterAndExpand" Source="reply.png" WidthRequest="25"></ImageButton>
