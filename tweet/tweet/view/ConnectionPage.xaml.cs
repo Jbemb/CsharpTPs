@@ -69,7 +69,7 @@ namespace tweet.view
 
             if (isConnected)
             {
-                Navigation.PushAsync(new MainPage());
+                Navigation.PushAsync(new TweetPage());
             }
             else
             {
