@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:views="clr-namespace:tweet.view"
+             mc:Ignorable="d"
+             x:Class="tweet.view.ConnectionPage">
+    <ContentPage.Content>
+        <StackLayout>
+        <ContentView>
+            <views:header/>
+        </ContentView>
+        
+        <StackLayout x:Name="signIn" Orientation="Vertical" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+            <Label Text="Connexion à Twitter" HorizontalTextAlignment="Center" TextColor="Gray"></Label>
+            <Entry x:Name="Identifiant" Placeholder="Identifiant Twitter"></Entry>
+            <Entry x:Name="Password" IsPassword="True" Placeholder="Mot de Passe"></Entry>
+            <StackLayout Orientation="Horizontal">
+                <Switch x:Name="RememberMe" ThumbColor="HotPink" OnColor="Pink" Margin="10"></Switch>
+                <Label Text="Memoriser mes informations" VerticalTextAlignment="Center" HorizontalTextAlignment="Start"></Label>
+            </StackLayout>
+            <Label x:Name="error" Text="" TextColor="PaleVioletRed" IsVisible="False"></Label>
+            <Button x:Name="connecter" Text="SE CONNECTER" BackgroundColor="LightGray" Padding="10"></Button>
+        </StackLayout>
+        <ContentView>
+            <views:Footer/>
+        </ContentView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

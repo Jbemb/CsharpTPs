@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="tweet.view.header">
+  <ContentView.Content>
+        <StackLayout BackgroundColor="#58B0F0" Orientation="Horizontal" Padding="10, 25">
+            <Image Source="pencil.png" HorizontalOptions="StartAndExpand"
+           VerticalOptions="CenterAndExpand" Aspect="AspectFill" WidthRequest="25"/>
+            <Label Text="Accueil" FontAttributes="Bold" FontSize="20" HorizontalOptions="CenterAndExpand"
+           VerticalOptions="CenterAndExpand" TextColor="White"/>
+            <Image Source="search.png" HorizontalOptions="EndAndExpand"
+           VerticalOptions="Center" Aspect="AspectFill" WidthRequest="25"></Image>
+
+        </StackLayout>
+    </ContentView.Content>
+</ContentView>
