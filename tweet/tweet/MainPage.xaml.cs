@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using tweet.model;
 using tweet.service;
+using tweet.view;
 using Xamarin.Essentials;
 using Xamarin.Forms;
 
@@ -19,10 +20,12 @@ namespace tweet
         private const string LOGIN_ERROR = "Please enter an id at least 3 characters long.";
         private const string PASSWORD_ERROR = "Please enter password at least 6 characters long.";
         private const string INCORRECT_ERROR = "Your password and/or user name are incorrect.";
-
+        private ITwitterService tService = new TwitterService();
         public MainPage()
         {
+            this.tService = new TwitterService(); ;
             InitializeComponent();
+            
             this.connecter.Clicked += Connecter_Clicked;
             var current = Connectivity.NetworkAccess;
             if (current != NetworkAccess.Internet)
@@ -30,6 +33,19 @@ namespace tweet
                 this.error.Text = "Connect to internet to sign in";
                 this.error.IsVisible = true;
             }
+
+            LoadTweets();
+
+        }
+
+        private void LoadTweets()
+        {
+            
+            foreach (Tweet item in tService.GetTweets()) 
+            {
+                tweets.Children.Add(new TweetList().LoadData(item));
+            }
+            
         }
 
         private void Connecter_Clicked(object sender, EventArgs e)
@@ -41,7 +57,7 @@ namespace tweet
             var testLogin = true;
             var testPassword = true;
             Boolean isConnected = false;
-            TwitterService tService = new TwitterService();
+            
             StringBuilder builder = new StringBuilder();
 
             if(String.IsNullOrEmpty(id) || id.Length < 3) 

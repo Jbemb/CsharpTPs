@@ -5,7 +5,7 @@ VisualStudioVersion = 16.0.29709.97
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "tweet.UWP", "tweet\tweet.UWP\tweet.UWP.csproj", "{B778213A-72C2-42D7-AD0C-A6C5C0E918DA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "tweet", "tweet\tweet\tweet.csproj", "{A6B11DC5-01A9-4FAE-8B16-9E3102A3D5A4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "tweet", "tweet\tweet\tweet.csproj", "{A6B11DC5-01A9-4FAE-8B16-9E3102A3D5A4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
