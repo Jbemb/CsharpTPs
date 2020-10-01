@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using tweet.model;
 using tweet.service;
+using Xamarin.Essentials;
 using Xamarin.Forms;
 
 namespace tweet
@@ -23,6 +24,12 @@ namespace tweet
         {
             InitializeComponent();
             this.connecter.Clicked += Connecter_Clicked;
+            var current = Connectivity.NetworkAccess;
+            if (current != NetworkAccess.Internet)
+            {
+                this.error.Text = "Connect to internet to sign in";
+                this.error.IsVisible = true;
+            }
         }
 
         private void Connecter_Clicked(object sender, EventArgs e)
